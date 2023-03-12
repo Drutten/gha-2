@@ -1,0 +1,14 @@
+name: Events Demo 2
+on: 
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event data
+        run: echo "${{ toJSON(github.event) }}"
+      - name: Greeting
+        run: echo "Hello PR!"
